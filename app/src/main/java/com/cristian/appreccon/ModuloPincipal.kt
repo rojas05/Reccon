@@ -38,9 +38,6 @@ class ModuloPincipal : AppCompatActivity() {
         dialog.show()
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
-
-
-
         var ali =  view.findViewById<TextInputEditText>(R.id.tiAlimentacion)
         var noAli =  view.findViewById<TextInputEditText>(R.id.tiNoAlimentacio)
         val preferencias = getSharedPreferences( "registrar", Context.MODE_PRIVATE)

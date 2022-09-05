@@ -18,8 +18,16 @@ class Configuraciones : AppCompatActivity() {
         val C = preferencias .getString("con_alimentacion","")
         val N = preferencias .getString("sin_alimentacion","")
 
-        binding.cona.text = "$"+C
-        binding.sina.text = "$"+N
+       
 
+        binding.btactualizar1.setOnClickListener{
+            val preferencias = getSharedPreferences( "registrar", Context.MODE_PRIVATE)
+            val editor = preferencias.edit()
+            editor.putString("sin_alimentacion",binding.sin.text.toString())
+            editor.apply()
+        }
+
+        binding.cona.text = "$" +C
+        binding.sina.text = "$" +N
     }
 }

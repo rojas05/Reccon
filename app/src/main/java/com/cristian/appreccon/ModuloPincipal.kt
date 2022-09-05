@@ -29,8 +29,6 @@ class ModuloPincipal : AppCompatActivity() {
         if (estado == ""){
             configuracion()
         }
-
-
     }
     fun configuracion(){
         val alerta = AlertDialog.Builder(this)

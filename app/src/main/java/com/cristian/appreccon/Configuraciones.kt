@@ -15,12 +15,22 @@ class Configuraciones : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val preferencias = getSharedPreferences( "registrar", Context.MODE_PRIVATE)
-        val C = preferencias .getString("con_alimentacion","")
-        val N = preferencias .getString("sin_alimentacion","")
-
-       
-
+        val admin = RecconDataBase(this, "Reccon", null, 1)
+        val bd = admin.writableDatabase
+        val sin = bd.rawQuery(
+            "select * from configuracion where alimentacion = 'Sin Alimentacion'",
+            null
+        )
+        if (sin.moveToFirst()){
+            binding.sina.text = sin.getDouble(1).toString()
+        }
+        val con = bd.rawQuery(
+            "select * from configuracion where alimentacion = 'Sin Alimentacion'",
+            null
+        )
+        if (con.moveToFirst()){
+            binding.cona.text = con.getDouble(1).toString()
+        }
         binding.btactualizar1.setOnClickListener{
             if (TextUtils.isEmpty(binding.sin.text.toString())){
                 binding.sin.error = "este campo es obligatorio"
@@ -30,6 +40,8 @@ class Configuraciones : AppCompatActivity() {
                 val editor = preferencias.edit()
                 editor.putString("sin_alimentacion",binding.sin.text.toString())
                 editor.apply()
+
+
                 startActivity(Intent(this,Configuraciones::class.java))
             }
         }
@@ -46,7 +58,5 @@ class Configuraciones : AppCompatActivity() {
             }
         }
 
-        binding.cona.text = "$" +C
-        binding.sina.text = "$" +N
     }
 }

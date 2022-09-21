@@ -14,9 +14,12 @@
         android:theme="@style/Theme.AppReccon"
         tools:targetApi="31">
         <activity
+            android:name=".Recolectores"
+            android:exported="false" />
+        <activity
             android:name=".Configuraciones"
             android:exported="false"
-            android:parentActivityName=".ModuloPincipal"/>
+            android:parentActivityName=".ModuloPincipal" />
         <activity
             android:name=".ModuloPincipal"
             android:exported="false" />

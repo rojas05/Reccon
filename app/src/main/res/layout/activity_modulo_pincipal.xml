@@ -6,4 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ModuloPincipal">
 
+    <Button
+        android:id="@+id/btrecolecion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="recoleccion"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btinformes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="informes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppReccon/app/src/main/res/drawable/ic_settings.xml" value="0.2645" />
+        <entry key="..\:/AppReccon/app/src/main/res/drawable/item_recolector.xml" value="0.3665" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/activity_configuraciones.xml" value="0.3482789855072464" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/activity_modulo_pincipal.xml" value="0.33" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/activity_recolectores.xml" value="0.36666666666666664" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/alert.xml" value="0.3482789855072464" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/ingresar_recolector.xml" value="0.365625" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/item_recolector.xml" value="0.365625" />
       </map>
     </option>
   </component>

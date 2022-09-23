@@ -25,13 +25,18 @@ class ModuloPincipal : AppCompatActivity() {
         setContentView(binding.root)
 
         val preferencias = getSharedPreferences( "registrar", Context.MODE_PRIVATE)
-        val estado = preferencias .getString("estado","")
+        val estado = preferencias.getString("estado","")
+        val estadoRecolectores = preferencias.getString("estadoRecolector","")
 
         if (estado == ""){
             configuracion()
         }
         binding.btrecolecion.setOnClickListener{
-            registrarRecolector()
+            if(estadoRecolectores == ""){
+                registrarRecolector()
+            }else{
+                startActivity(Intent(this,Recolectores::class.java))
+            }
         }
     }
 
@@ -51,6 +56,13 @@ class ModuloPincipal : AppCompatActivity() {
              recolector.error = "porfavor ingrese un recolector"
              recolector.requestFocus()
          }else{
+             val admin = RecconDataBase(this,"Reccon", null, 1)
+             val bd = admin.writableDatabase
+             val registro = ContentValues()
+
+             registro.put("nombre",recolector.text.toString())
+             bd.insert("recolector", null, registro)
+
              editor.putString("estadoRecolector","1")
              editor.apply()
              Toast.makeText(this, recolector.text.toString()+" fue guardado exitosamente", Toast.LENGTH_SHORT).show()
@@ -66,6 +78,7 @@ class ModuloPincipal : AppCompatActivity() {
             }else{
                 dialog.cancel()
                 startActivity(Intent(this,Recolectores::class.java))
+                finish()
             }
         }
     }
@@ -94,16 +107,17 @@ class ModuloPincipal : AppCompatActivity() {
                 val bd = admin.writableDatabase
                 val registro = ContentValues()
 
+
                 registro.put("alimentacion","Con Alimentacion")
-                registro.put("precio",ali.text.toString().toInt())
+                registro.put("precio",ali.text.toString().toDouble())
+                registro.put("estado","Activo")
                 bd.insert("configuracion", null, registro)
 
                 registro.put("alimentacion","Sin Alimentacion")
-                registro.put("precio",noAli.text.toString().toInt())
+                registro.put("precio",noAli.text.toString().toDouble())
+                registro.put("estado","Activo")
                 bd.insert("configuracion", null, registro)
 
-                editor.putString("con_alimentacion",ali.text.toString())
-                editor.putString("sin_alimentacion",noAli.text.toString())
                 editor.putString("estado","1")
                 editor.apply()
                 dialog.cancel()

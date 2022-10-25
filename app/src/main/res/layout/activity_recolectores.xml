@@ -21,16 +21,21 @@
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/btPlusRe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:clickable="true"
+        android:background="@color/white"
         android:backgroundTint="@color/purple_500"
+        android:clickable="true"
+        android:isScrollContainer="false"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/plus" />
+        app:rippleColor="@color/white"
+        app:srcCompat="@drawable/plus"
+        app:useCompatPadding="false" />
 </androidx.constraintlayout.widget.ConstraintLayout>

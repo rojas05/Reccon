@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">App Reccon</string>
+    <string name="des">Reccon<i>(Recoleccion y Contabilidad)</i>
+        Agilizará el proceso de contabilidad y entregara el valor a pagar a cada recolector, la cantidad de café recolectado y el costo total de todos los recolectores.</string>
 </resources>

@@ -3,6 +3,7 @@ package com.cristian.appreccon
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,17 +13,32 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.cristian.appreccon.databinding.ActivityModuloPincipalBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class ModuloPincipal : AppCompatActivity() {
     lateinit var binding: ActivityModuloPincipalBinding
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityModuloPincipalBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        val hora= LocalDateTime.now()
+            .format(DateTimeFormatter.ofPattern("HH"))
+
+        if (hora < 12.toString()){
+            binding.tvSaludo.setText("Buenos Dias")
+        }else if(hora >= 12.toString() && hora < 18.toString()){
+            binding.tvSaludo.setText("Buenas Tardes")
+        }else{
+            binding.tvSaludo.setText("Buenas Noches")
+        }
 
         val preferencias = getSharedPreferences( "registrar", Context.MODE_PRIVATE)
         val estado = preferencias.getString("estado","")
@@ -38,6 +54,10 @@ class ModuloPincipal : AppCompatActivity() {
                 startActivity(Intent(this,Recolectores::class.java))
             }
         }
+        binding.btinformes.setOnClickListener {
+            Toast.makeText(this, "Funcion aun no disponible " +
+                    " estamos trabajando ;)", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun registrarRecolector() {
@@ -51,6 +71,7 @@ class ModuloPincipal : AppCompatActivity() {
         var recolector = view.findViewById<TextInputEditText>(R.id.tiRecolector)
         val preferencias = getSharedPreferences( "registrar", Context.MODE_PRIVATE)
         val editor = preferencias.edit()
+
         view.findViewById<Button>(R.id.btguardar).setOnClickListener {
          if (TextUtils.isEmpty(recolector.text.toString())){
              recolector.error = "porfavor ingrese un recolector"
@@ -69,16 +90,21 @@ class ModuloPincipal : AppCompatActivity() {
              recolector.setText("")
          }
         }
+
         view.findViewById<Button>(R.id.btfinalizar).setOnClickListener {
             val estadoRecolector = preferencias .getString("estadoRecolector","")
-            if (estadoRecolector == ""){
-                dialog.cancel()
-                startActivity(Intent(this,ModuloPincipal::class.java))
-                finish()
+            if (recolector.text.toString() != ""){
+                Toast.makeText(this, "precione el boton GUARDAR", Toast.LENGTH_SHORT).show()
             }else{
-                dialog.cancel()
-                startActivity(Intent(this,Recolectores::class.java))
-                finish()
+                if (estadoRecolector == ""){
+                    dialog.cancel()
+                    startActivity(Intent(this,ModuloPincipal::class.java))
+                    finish()
+                }else{
+                    dialog.cancel()
+                    startActivity(Intent(this,Recolectores::class.java))
+                    finish()
+                }
             }
         }
     }

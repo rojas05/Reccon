@@ -15,6 +15,8 @@ class Configuraciones : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        title = "Configuracion"
+
         val admin = RecconDataBase(this, "Reccon", null, 1)
         val bd = admin.writableDatabase
         val registro = ContentValues()
@@ -41,7 +43,7 @@ class Configuraciones : AppCompatActivity() {
             }else{
                 val id_sinAlimentacion = sin.getInt(0)
                 registro.put("estado","Antiguo")
-                val cant = bd.update("configuracion", registro, "id=${id_sinAlimentacion}", null)
+                val cant = bd.update("configuracion", registro, "id_configuracion=${id_sinAlimentacion}", null)
                 if (cant == 1){
                     Toast.makeText(this, "se Actualizo el precio", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this,Configuraciones::class.java))
@@ -62,7 +64,7 @@ class Configuraciones : AppCompatActivity() {
             }else{
                 val id_conAlimentacion = con.getInt(0)
                 registro.put("estado","Antiguo")
-                val cant = bd.update("configuracion", registro, "id=${id_conAlimentacion}", null)
+                val cant = bd.update("configuracion", registro, "id_configuracion=${id_conAlimentacion}", null)
                 if (cant == 1){
                     Toast.makeText(this, "se Actualizo el precio", Toast.LENGTH_SHORT).show()
                     registro.put("alimentacion","Con Alimentacion")

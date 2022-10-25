@@ -3,18 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppReccon/AppReccon/app/src/main/res/layout/activity_detalle_recolector.xml" value="0.33" />
+        <entry key="..\:/AppReccon/AppReccon/app/src/main/res/layout/item_anteriores.xml" value="0.3625" />
+        <entry key="..\:/AppReccon/AppReccon/app/src/main/res/layout/item_hoy.xml" value="0.3625" />
         <entry key="..\:/AppReccon/app/src/main/res/drawable/ic_settings.xml" value="0.2645" />
         <entry key="..\:/AppReccon/app/src/main/res/drawable/item_recolector.xml" value="0.3665" />
-        <entry key="..\:/AppReccon/app/src/main/res/layout/activity_configuraciones.xml" value="0.3482789855072464" />
+        <entry key="..\:/AppReccon/app/src/main/res/drawable/splash.xml" value="0.366" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/activity_configuraciones.xml" value="0.25" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/activity_detalle_recolector.xml" value="0.36666666666666664" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/activity_modulo_pincipal.xml" value="0.33" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/activity_recolectores.xml" value="0.36666666666666664" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/alert.xml" value="0.3482789855072464" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/alert_recoleccion.xml" value="0.365625" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/eliminar.xml" value="0.365625" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/ingresar_recolector.xml" value="0.365625" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/item_anteriores.xml" value="0.5" />
+        <entry key="..\:/AppReccon/app/src/main/res/layout/item_hoy.xml" value="0.365625" />
         <entry key="..\:/AppReccon/app/src/main/res/layout/item_recolector.xml" value="0.365625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

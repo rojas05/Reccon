@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.cristian.appreccon">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -14,19 +13,29 @@
         android:theme="@style/Theme.AppReccon"
         tools:targetApi="31">
         <activity
+            android:name=".DetalleRecolector"
+            android:exported="false"
+            android:parentActivityName=".Recolectores"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".Recolectores"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ModuloPincipal"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Configuraciones"
             android:exported="false"
-            android:parentActivityName=".ModuloPincipal" />
+            android:parentActivityName=".ModuloPincipal"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ModuloPincipal"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

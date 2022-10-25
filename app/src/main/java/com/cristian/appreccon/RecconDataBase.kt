@@ -9,9 +9,9 @@ SQLiteDatabase.CursorFactory?, Version: Int):
     SQLiteOpenHelper(context,name,factory,Version){
     override fun onCreate(p0: SQLiteDatabase) {
         with(p0){
-            execSQL("create table configuracion(id INTEGER PRIMARY KEY AUTOINCREMENT, alimentacion text, precio real,estado text)")
-            execSQL("create table recolector(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre text, configuracion text REFERENCES configuracion)")
-            execSQL("create table recoleccion(id INTEGER PRIMARY KEY AUTOINCREMENT, kilos INTEGER,fecha text,recolector INTEGER REFERENCES recolector)")
+            execSQL("create table recolector(id_recolector INTEGER PRIMARY KEY AUTOINCREMENT, nombre text)")
+            execSQL("create table configuracion(id_configuracion INTEGER PRIMARY KEY AUTOINCREMENT, alimentacion text, precio real,estado text)")
+            execSQL("create table recoleccion(id_recoleccion INTEGER PRIMARY KEY AUTOINCREMENT, cantidad real,fecha text,recolector INTEGER REFERENCES recolector, configuracion INTEGER REFERENCES configuracion)")
         }
     }
 
